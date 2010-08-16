@@ -1,6 +1,6 @@
 PodcastRSS::Application.routes.draw do
   resources :episodes
-  resources :feed
+  match 'feed(.:format)', to: 'episodes#index'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
