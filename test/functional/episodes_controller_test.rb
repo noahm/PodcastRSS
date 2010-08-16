@@ -1,10 +1,6 @@
 require 'test_helper'
 
 class EpisodesControllerTest < ActionController::TestCase
-  setup do
-    @episode = episodes(:one)
-  end
-
   test "should get index" do
     get :index
     assert_response :success
@@ -18,30 +14,30 @@ class EpisodesControllerTest < ActionController::TestCase
 
   test "should create episode" do
     assert_difference('Episode.count') do
-      post :create, :episode => @episode.attributes
+      post :create, :episode => episodes(:one).attributes
     end
 
     assert_redirected_to episode_path(assigns(:episode))
   end
 
   test "should show episode" do
-    get :show, :id => @episode.to_param
+    get :show, :id => episodes(:one).to_param
     assert_response :success
   end
 
   test "should get edit" do
-    get :edit, :id => @episode.to_param
+    get :edit, :id => episodes(:one).to_param
     assert_response :success
   end
 
   test "should update episode" do
-    put :update, :id => @episode.to_param, :episode => @episode.attributes
+    put :update, :id => episodes(:one).to_param, :episode => episodes(:one).attributes
     assert_redirected_to episode_path(assigns(:episode))
   end
 
   test "should destroy episode" do
     assert_difference('Episode.count', -1) do
-      delete :destroy, :id => @episode.to_param
+      delete :destroy, :id => episodes(:one).to_param
     end
 
     assert_redirected_to episodes_path

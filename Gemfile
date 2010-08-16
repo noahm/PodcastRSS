@@ -1,35 +1,24 @@
-source 'http://rubygems.org'
+# Edit this Gemfile to bundle your application's dependencies.
+source 'http://gemcutter.org'
 
-gem 'rails', '3.0.0.beta'
 
-# Bundle edge Rails instead:
-# gem 'rails', :git => 'git://github.com/rails/rails.git'
-group :development, :test do
-  gem 'sqlite3-ruby', :require => 'sqlite3'
-end
+gem "rails", "3.0.0.beta"
 
-group :deploy do
-  gem 'pg'
-end
+## Bundle edge rails:
+# gem "rails", :git => "git://github.com/rails/rails.git"
 
-# Use unicorn as the web server
-# gem 'unicorn'
+# ActiveRecord requires a database adapter. By default,
+# Rails has selected sqlite3.
+gem "sqlite3-ruby", :require => "sqlite3"
 
-# Deploy with Capistrano
-# gem 'capistrano'
+## Bundle the gems you use:
+# gem "bj"
+# gem "hpricot", "0.6"
+# gem "sqlite3-ruby", :require => "sqlite3"
+# gem "aws-s3", :require => "aws/s3"
 
-# To use debugger
-# gem 'ruby-debug'
-
-# Bundle the extra gems:
-# gem 'bj'
-# gem 'nokogiri', '1.4.1'
-# gem 'sqlite3-ruby', :require => 'sqlite3'
-# gem 'aws-s3', :require => 'aws/s3'
-
-# Bundle gems for the local environment. Make sure to
-# put test-only gems in this group so their generators
-# and rake tasks are available in development mode:
-# group :development, :test do
-#   gem 'webrat'
+## Bundle gems used only in certain environments:
+# gem "rspec", :group => :test
+# group :test do
+#   gem "webrat"
 # end

@@ -1,4 +1,4 @@
-PodcastRSS::Application.routes.draw do
+PodcastRSS::Application.routes.draw do |map|
   resources :episodes
   match 'feed(.:format)', to: 'episodes#index'
 

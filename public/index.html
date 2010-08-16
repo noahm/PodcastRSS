@@ -82,8 +82,7 @@
       #about-content {
         background-color: #ffd;
         border: 1px solid #fc0;
-        margin-left: -55px;
-        margin-right: -10px;
+        margin-left: -11px;
       }
       #about-content table {
         margin-top: 10px;
@@ -182,27 +181,27 @@
       }
 
     </style>
+    <script type="text/javascript" src="javascripts/prototype.js"></script>
+    <script type="text/javascript" src="javascripts/effects.js"></script>
     <script type="text/javascript">
       function about() {
-        info = document.getElementById('about-content');
-        if (window.XMLHttpRequest)
-          { xhr = new XMLHttpRequest(); }
-        else
-          { xhr = new ActiveXObject("Microsoft.XMLHTTP"); }
-        xhr.open("GET","rails/info/properties",false);
-        xhr.send("");
-        info.innerHTML = xhr.responseText;
-        info.style.display = 'block'
-      }
-
-      function prepend() {
-        search = document.getElementById('search-text');
-        text = search.value;
-        search.value = 'site:rubyonrails.org ' + text;
+        if (Element.empty('about-content')) {
+          new Ajax.Updater('about-content', 'rails/info/properties', {
+            method:     'get',
+            onFailure:  function() {Element.classNames('about-content').add('failure')},
+            onComplete: function() {new Effect.BlindDown('about-content', {duration: 0.25})}
+          });
+        } else {
+          new Effect[Element.visible('about-content') ?
+            'BlindUp' : 'BlindDown']('about-content', {duration: 0.25});
+        }
       }
 
       window.onload = function() {
-        document.getElementById('search-text').value = '';
+        $('search-text').value = '';
+        $('search').onsubmit = function() {
+          $('search-text').value = 'site:rubyonrails.org ' + $F('search-text');
+        }
       }
     </script>
   </head>
@@ -210,6 +209,23 @@
     <div id="page">
       <div id="sidebar">
         <ul id="sidebar-items">
+          <li>
+            <form id="search" action="http://www.google.com/search" method="get">
+              <input type="hidden" name="hl" value="en" />
+              <input type="text" id="search-text" name="q" value="site:rubyonrails.org " />
+              <input type="submit" value="Search" /> the Rails site
+            </form>
+          </li>
+
+          <li>
+            <h3>Join the community</h3>
+            <ul class="links">
+              <li><a href="http://www.rubyonrails.org/">Ruby on Rails</a></li>
+              <li><a href="http://weblog.rubyonrails.org/">Official weblog</a></li>
+              <li><a href="http://wiki.rubyonrails.org/">Wiki</a></li>
+            </ul>
+          </li>
+
           <li>
             <h3>Browse the documentation</h3>
             <ul class="links">

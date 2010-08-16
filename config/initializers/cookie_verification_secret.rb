@@ -2,6 +2,6 @@
 
 # Your secret key for verifying the integrity of signed cookies.
 # If you change this key, all old signed cookies will become invalid!
-# Make sure the secret is at least 30 characters and all random,
+# Make sure the secret is at least 30 characters and all random, 
 # no regular words or you'll be exposed to dictionary attacks.
-PodcastRSS::Application.config.secret_token = '175b0b7f1dd6b81ae687bf6999a2a9a1808dc079234fdcd9e3f101d42451773d8e78baf375ea2c56b3e4b85028bdf77ccbfe0b5e1deec312e2147a7707aedb19'
+ActionController::Base.cookie_verifier_secret = 'cc6eb1b2b3ce86a6d4d9cafb3fe75227bd49f7a194d1960dee17f150a0be3ca0c1f1ce1018df1a343cf592c1b1fcc8eba1f89389a54b651a1cf70e11ca17a6ca'
