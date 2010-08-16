@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd" version="2.0">
+
+<channel>
+  <title>The Game Studio Podcast</title>
+  <link>http://www.thegamestudio.net/</link>
+  <language>en-us</language>
+  <copyright>(cc) by-nc-sa 2010 The Game Studio</copyright>
+  <itunes:subtitle>A discussion of games and the making of them</itunes:subtitle>
+  <itunes:author>The Game Studio</itunes:author>
+  <itunes:summary>Listen as members of The Game Studio development team discuss video games.</itunes:summary>
+  <description>Listen as members of The Game Studio development team discuss video games.</description>
+  <itunes:owner>
+    <itunes:name>Noah Manneschmidt</itunes:name>
+    <itunes:email>psoplayer@gmail.com</itunes:email>
+  </itunes:owner>
+  <itunes:image href="http://example.com/podcasts/everything/AllAboutEverything.jpg" />
+  <itunes:category text="Games &amp; Hobbies">
+    <itunes:category text="Video Games"/>
+  </itunes:category>
+  <itunes:category text="Technology"/>
+  
+  <%- @episodes.each do |episode| %>
+  <item>
+    <title><%= episode.title %></title>
+    <itunes:author>The Game Studio</itunes:author>
+    <itunes:subtitle><%= episode.description %></itunes:subtitle>
+    <itunes:summary><%= episode.description %></itunes:summary>
+    <enclosure url="<%= episode.file_url %>" type="audio/x-m4a" />
+    <guid><%= episode.file_url %></guid>
+    <pubDate>Sun, 15 Aug 2010 23:00:00 GMT</pubDate>
+    <itunes:duration><%= episode.duration %></itunes:duration>
+    <itunes:keywords><%= episode.itunes_keywords %></itunes:keywords>
+  </item>
+  <%- end %>
+</channel>
+</rss>

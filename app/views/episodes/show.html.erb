@@ -1,0 +1,30 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Title:</b>
+  <%= @episode.title %>
+</p>
+
+<p>
+  <b>File url:</b>
+  <%= @episode.file_url %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%= @episode.description %>
+</p>
+
+<p>
+  <b>Itunes keywords:</b>
+  <%= @episode.itunes_keywords %>
+</p>
+
+<p>
+  <b>Duration:</b>
+  <%= @episode.duration %>
+</p>
+
+
+<%= link_to 'Edit', edit_episode_path(@episode) %> |
+<%= link_to 'Back', episodes_path %>
