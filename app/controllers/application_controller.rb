@@ -8,7 +8,7 @@ class ApplicationController < ActionController::Base
     end
     flash[:warning] = "Please login to conginue"
     session[:return_to]=request.request_uri
-    redirect_to controller => 'user', action => 'login'
+    redirect_to :controller => 'user', :action => 'login'
     return false
   end
   
@@ -21,7 +21,7 @@ class ApplicationController < ActionController::Base
       session[:return_to] = nil
       redirect_to return_to
     else
-      redirect_to controller => 'episodes', action => 'index'
+      redirect_to :controller => 'episodes', :action => 'index'
     end
   end
 end

@@ -1,11 +1,11 @@
 Config::Application.routes.draw do
   
-  match 'login', to => 'user#login', as => 'login'
-  match 'logout', to => 'user#logout', as => 'logout'
-  match 'change_password', to => 'user#change_password'
+  match 'login', :to => 'user#login', :as => 'login'
+  match 'logout', :to => 'user#logout', :as => 'logout'
+  match 'change_password', :to => 'user#change_password'
   resources :episodes
-  match 'feed(.:format)', to => 'episodes#index'
-  root to => 'user#login'
+  match 'feed(.:format)', :to => 'episodes#index'
+  root :to => 'user#login'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

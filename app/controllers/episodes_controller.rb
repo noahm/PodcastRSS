@@ -1,15 +1,15 @@
 class EpisodesController < ApplicationController
-  before_filter :login_required, except => :index
+  before_filter :login_required, :except => :index
   
   # GET /episodes
   # GET /episodes.xml
   def index
     @current_user = current_user
-    @episodes = Episode.find(:all, order => 'created_at DESC')
+    @episodes = Episode.find(:all, :order => 'created_at DESC')
 
     respond_to do |format|
       format.html # index.html.erb
-      format.rss { render rss => @episodes }
+      format.rss { render :rss => @episodes }
       format.xml  { render :xml => @episodes }
     end
   end
