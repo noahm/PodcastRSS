@@ -4,4 +4,4 @@
 require File.expand_path('../config/application', __FILE__)
 require 'rake'
 
-PodcastRSS::Application.load_tasks
+Config::Application.load_tasks
