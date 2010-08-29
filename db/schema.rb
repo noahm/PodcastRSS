@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100816204258) do
+ActiveRecord::Schema.define(:version => 20100829003215) do
 
   create_table "episodes", :force => true do |t|
     t.string   "title"
@@ -17,6 +17,14 @@ ActiveRecord::Schema.define(:version => 20100816204258) do
     t.text     "description"
     t.string   "itunes_keywords"
     t.string   "duration"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "users", :force => true do |t|
+    t.string   "login"
+    t.string   "hashed_password"
+    t.string   "salt"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

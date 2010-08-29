@@ -1,7 +1,10 @@
 class EpisodesController < ApplicationController
+  before_filter :login_required, except: :index
+  
   # GET /episodes
   # GET /episodes.xml
   def index
+    @current_user = current_user
     @episodes = Episode.find(:all, order: 'created_at DESC')
 
     respond_to do |format|

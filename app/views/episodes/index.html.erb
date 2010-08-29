@@ -7,9 +7,11 @@
     <th>Description</th>
     <th>Itunes keywords</th>
     <th>Duration</th>
+    <% if @current_user %>
     <th></th>
     <th></th>
     <th></th>
+    <% end %>
   </tr>
 
 <% @episodes.each do |episode| %>
@@ -19,13 +21,19 @@
     <td><%= episode.description %></td>
     <td><%= episode.itunes_keywords %></td>
     <td><%= episode.duration %></td>
+    <% if @current_user %>
     <td><%= link_to 'Show', episode %></td>
     <td><%= link_to 'Edit', edit_episode_path(episode) %></td>
     <td><%= link_to 'Destroy', episode, :confirm => 'Are you sure?', :method => :delete %></td>
+    <% end %>
   </tr>
 <% end %>
 </table>
 
 <br />
-
-<%= link_to 'New Episode', new_episode_path %>
+<% if @current_user %>
+<%= link_to 'New Episode', new_episode_path %><br>
+<%= link_to 'Logout '+@current_user.login, logout_path %>
+<% else %>
+<%= link_to 'Login', login_path %>
+<% end %>
