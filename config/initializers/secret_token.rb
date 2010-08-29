@@ -4,4 +4,4 @@
 # If you change this key, all old signed cookies will become invalid!
 # Make sure the secret is at least 30 characters and all random,
 # no regular words or you'll be exposed to dictionary attacks.
-PodcastRSS::Application.config.secret_token = 'd9e78f296fbbd40fe0521a658a631e3f339f86f94f151614eaa19f84be8f6ea2b5052f5ba03c195e478ff1faa202e793ddd1b3761275fe1463bc09e9476dd981'
+Config::Application.config.secret_token = '0a84b8878d240de81958d3e85134e10aeeb8d00073fbe66ef81a884257860063419dc537d103b5bc13999189cb1b18cf8b4daabf669466a7c965270e5180af12'

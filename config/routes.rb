@@ -1,4 +1,5 @@
-PodcastRSS::Application.routes.draw do |map|
+Config::Application.routes.draw do
+  
   match 'login', to: 'user#login', as: 'login'
   match 'logout', to: 'user#logout', as: 'logout'
   match 'change_password', to: 'user#change_password'
