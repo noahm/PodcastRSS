@@ -23,7 +23,7 @@ class User < ActiveRecord::Base
   end
   
   def self.authenticate(login, pass)
-    u = find(:first, conditions:['login = ?', login])
+    u = find(:first, :conditions => ['login = ?', login])
     return nil if u.nil?
     return u if User.encrypt(pass, u.salt) == u.hashed_password
     nil
