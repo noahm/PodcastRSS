@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <rss xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd" version="2.0">
-
+<% require 'builder/xchar' %>
 <channel>
   <title>The Game Studio Podcast</title>
   <link>http://www.thegamestudio.net/</link>
@@ -15,22 +15,23 @@
     <itunes:email>psoplayer@gmail.com</itunes:email>
   </itunes:owner>
   <itunes:image href="http://www.archive.org/download/TheGameStudioPodcastLogo/podcast-logo.png" />
+  <itunes:explicit>yes</itunes:explicit>
   <itunes:category text="Games &amp; Hobbies">
     <itunes:category text="Video Games"/>
   </itunes:category>
   <itunes:category text="Technology"/>
   
-  <%- @episodes.each do |episode| %>
+  <% @episodes.each do |episode| %>
   <item>
-    <title><%= episode.title %></title>
+    <title><%= episode.title.to_xs %></title>
     <itunes:author>The Game Studio</itunes:author>
-    <itunes:subtitle><%= episode.description %></itunes:subtitle>
-    <itunes:summary><%= episode.description %></itunes:summary>
+    <itunes:subtitle><%= episode.description.to_xs %></itunes:subtitle>
+    <itunes:summary><%= episode.description.to_xs %></itunes:summary>
     <enclosure url="<%= episode.file_url %>" type="audio/x-m4a" />
     <guid><%= episode.file_url %></guid>
-    <pubDate>Sun, 15 Aug 2010 23:00:00 GMT</pubDate>
+    <pubDate><%= episode.created_at.rfc2822 %></pubDate>
     <itunes:duration><%= episode.duration %></itunes:duration>
-    <itunes:keywords><%= episode.itunes_keywords %></itunes:keywords>
+    <itunes:keywords><%= episode.itunes_keywords.to_xs %></itunes:keywords>
   </item>
   <%- end %>
 </channel>
