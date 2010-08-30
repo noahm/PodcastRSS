@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<rss xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd" version="2.0">
+<rss version="2.0" xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd" xmlns:atom="http://www.w3.org/2005/Atom">
 <% require 'builder/xchar' %>
 <channel>
   <title>The Game Studio Podcast</title>
   <link>http://www.thegamestudio.net/</link>
+  <atom:link href="http://podcast.thegamestudio.net/feed.rss" rel="self" type="application/rss+xml" />
   <language>en-us</language>
   <copyright>(cc) by-nc-sa 2010 The Game Studio</copyright>
   <itunes:subtitle>A discussion of games and the making of them</itunes:subtitle>
@@ -33,6 +34,6 @@
     <itunes:duration><%= episode.duration %></itunes:duration>
     <itunes:keywords><%= episode.itunes_keywords.to_xs %></itunes:keywords>
   </item>
-  <%- end %>
+  <% end %>
 </channel>
 </rss>
