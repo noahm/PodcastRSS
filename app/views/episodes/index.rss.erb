@@ -27,7 +27,7 @@
     <itunes:author>The Game Studio</itunes:author>
     <itunes:subtitle><%= episode.description.to_xs %></itunes:subtitle>
     <itunes:summary><%= episode.description.to_xs %></itunes:summary>
-    <enclosure url="<%= episode.file_url %>" type="audio/x-m4a" />
+    <enclosure url="<%= episode.file_url %>" type="audio/x-m4a" length="<%= episode.length %>" />
     <guid><%= episode.file_url %></guid>
     <pubDate><%= episode.created_at.rfc2822 %></pubDate>
     <itunes:duration><%= episode.duration %></itunes:duration>
