@@ -34,6 +34,7 @@
     <title><%= episode.title.to_xs %></title>
     <itunes:author>The Game Studio</itunes:author>
     <itunes:subtitle><%= clip_subtitle episode.description.to_xs %></itunes:subtitle>
+    <description><%= episode.description.to_xs %></description>
     <itunes:summary><%= episode.description.to_xs %></itunes:summary>
     <enclosure url="<%= episode.file_url %>" type="audio/x-m4a" length="<%= episode.length %>" />
     <guid><%= episode.file_url %></guid>
