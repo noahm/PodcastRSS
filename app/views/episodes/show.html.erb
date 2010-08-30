@@ -25,6 +25,11 @@
   <%= @episode.duration %>
 </p>
 
+<p>
+  <b>Length (in bytes):</b>
+  <%= @episode.length %>
+</p>
+
 
 <%= link_to 'Edit', edit_episode_path(@episode) %> |
 <%= link_to 'Back', episodes_path %>
